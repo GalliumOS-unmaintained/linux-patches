@@ -1,0 +1,24 @@
+Configure Elan touchpad i2c address for Wolf
+
+The upcoming Elan Wolf devices need to know to look for Elan touchpads
+on the i2c bus so that they will be functional.
+
+BUG=chrome-os-partner:28429
+TEST=built a test image with it and the touchpad was functional
+
+Change-Id: I2798d29e7984ee7fccd15be465b9c705fbdb340e
+Signed-off-by: Charlie Mooney <charliemooney@chromium.org>
+Reviewed-on: https://chromium-review.googlesource.com/198283
+Reviewed-by: Benson Leung <bleung@chromium.org>
+diff --git a/drivers/platform/x86/chromeos_laptop.c b/drivers/platform/x86/chromeos_laptop.c
+index f4ed762..ba92cf6 100644
+--- a/drivers/platform/x86/chromeos_laptop.c
++++ b/drivers/platform/x86/chromeos_laptop.c
+@@ -574,6 +574,8 @@
+ 	.i2c_peripherals = {
+ 		/* Touchpad. */
+ 		{ .add = setup_cyapa_tp, I2C_ADAPTER_I2C0 },
++		/* Elan Touchpad option. */
++		{ .add = setup_elantech_tp, I2C_ADAPTER_I2C0 },
+ 	},
+ };
