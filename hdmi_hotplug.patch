@@ -147,3 +147,27 @@ diff -ruN linux-4.0.5/drivers/gpu/drm/i915/i915_irq.c linux-4.0.5.new/drivers/gp
  	INIT_WORK(&dev_priv->dig_port_work, i915_digport_work_func);
  	INIT_WORK(&dev_priv->rps.work, gen6_pm_rps_work);
  	INIT_WORK(&dev_priv->l3_parity.error_work, ivybridge_parity_work);
+diff -ruN linux-4.0.5/include/drm/drm_crtc_helper.h linux-4.0.5.new/include/drm/drm_crtc_helper.h
+--- linux-4.0.5/include/drm/drm_crtc_helper.h	2015-08-16 21:52:51.000000000 -0600
++++ linux-4.0.5.new/include/drm/drm_crtc_helper.h	2015-09-29 20:55:07.920326521 -0600
+@@ -232,7 +232,7 @@
+ extern void drm_kms_helper_poll_fini(struct drm_device *dev);
+ extern bool drm_helper_hpd_irq_event(struct drm_device *dev);
+ extern void drm_kms_helper_hotplug_event(struct drm_device *dev);
+-
++extern void drm_kms_helper_hdmi_hotplug_event(struct drm_device *dev);
+ extern void drm_kms_helper_poll_disable(struct drm_device *dev);
+ extern void drm_kms_helper_poll_enable(struct drm_device *dev);
+ 
+diff -ruN linux-4.0.5/include/drm/drmP.h linux-4.0.5.new/include/drm/drmP.h
+--- linux-4.0.5/include/drm/drmP.h	2015-08-16 21:52:51.000000000 -0600
++++ linux-4.0.5.new/include/drm/drmP.h	2015-09-29 21:57:15.171346051 -0600
+@@ -1018,7 +1018,7 @@
+ 
+ 			       /* sysfs support (drm_sysfs.c) */
+ extern void drm_sysfs_hotplug_event(struct drm_device *dev);
+-
++extern void drm_sysfs_hdmi_hotplug_event(struct drm_device *dev);
+ 
+ struct drm_device *drm_dev_alloc(struct drm_driver *driver,
+ 				 struct device *parent);
