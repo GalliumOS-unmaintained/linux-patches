@@ -1,0 +1,13 @@
+--- linux-4.1.6/kernel/workqueue.c	2015-08-16 21:52:51.000000000 -0600
++++ linux-4.1.6.gallium/kernel/workqueue.c	2015-10-18 14:03:33.220454185 -0600
+@@ -86,8 +86,8 @@
+ 	UNBOUND_POOL_HASH_ORDER	= 6,		/* hashed by pool->attrs */
+ 	BUSY_WORKER_HASH_ORDER	= 6,		/* 64 pointers */
+ 
+-	MAX_IDLE_WORKERS_RATIO	= 4,		/* 1/4 of busy can be idle */
+-	IDLE_WORKER_TIMEOUT	= 300 * HZ,	/* keep idle ones for 5 mins */
++	MAX_IDLE_WORKERS_RATIO	= 8,		/* 1/8 of busy can be idle */
++	IDLE_WORKER_TIMEOUT	= 10 * HZ,	/* keep idle ones for 10 seconds */
+ 
+ 	MAYDAY_INITIAL_TIMEOUT  = HZ / 100 >= 2 ? HZ / 100 : 2,
+ 						/* call for help after 10ms

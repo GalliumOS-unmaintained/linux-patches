@@ -95,7 +95,7 @@ diff -ruN linux-4.0.5/drivers/gpu/drm/i915/i915_irq.c linux-4.0.5.new/drivers/gp
  	return true;
  }
  
-+#define HOTPLUG_DELAY_MS	400
++#define HOTPLUG_DELAY_MS	800
 +
  static void i915_digport_work_func(struct work_struct *work)
  {
