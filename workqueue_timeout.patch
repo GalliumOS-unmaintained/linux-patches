@@ -7,7 +7,7 @@
 -	MAX_IDLE_WORKERS_RATIO	= 4,		/* 1/4 of busy can be idle */
 -	IDLE_WORKER_TIMEOUT	= 300 * HZ,	/* keep idle ones for 5 mins */
 +	MAX_IDLE_WORKERS_RATIO	= 8,		/* 1/8 of busy can be idle */
-+	IDLE_WORKER_TIMEOUT	= 30 * HZ,	/* keep idle ones for 10 seconds */
++	IDLE_WORKER_TIMEOUT	= 6 * HZ,	/* keep idle ones for 6 seconds */
  
  	MAYDAY_INITIAL_TIMEOUT  = HZ / 100 >= 2 ? HZ / 100 : 2,
  						/* call for help after 10ms
