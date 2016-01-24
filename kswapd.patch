@@ -1,0 +1,10 @@
+--- linux-4.1.14/mm/huge_memory.c	2015-12-09 12:03:42.000000000 -0700
++++ linux-4.1.14.new/mm/huge_memory.c	2016-01-23 09:05:23.689612303 -0700
+@@ -141,6 +141,7 @@
+ 	setup_per_zone_wmarks();
+ 	return 0;
+ }
++late_initcall(set_recommended_min_free_kbytes);
+ 
+ static int start_stop_khugepaged(void)
+ {
